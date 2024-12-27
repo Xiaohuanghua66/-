@@ -68,6 +68,7 @@ features_df = pd.DataFrame([feature_values], columns=feature_names)
 if st.button("Predict"):
     # Create DataFrame from user input
     features_df = pd.DataFrame([feature_values], columns=feature_names)
+    
     # Predict class and probabilities using DataFrame
     predicted_class = model.predict(features_df)[0]
     predicted_proba = model.predict_proba(features_df)[0]
@@ -79,25 +80,30 @@ if st.button("Predict"):
     # Generate advice based on prediction results
     probability = predicted_proba[predicted_class] * 100
 
-    if predicted_class == 0:
+    # 将 predicted_class 映射为新的类别：0 -> 1, 1 -> 2, 2 -> 3
+    mapped_class = predicted_class + 1
+
+    # 根据映射后的类别给出相应的建议
+    if mapped_class == 1:
         advice = (
-            f"According to our model, the fetus is in an anomalous state. "
-            f"The model predicts that the fetus has a {probability:.1f}% probability of being anomalous. "
-            "It is strongly advised to seek immediate medical attention for further evaluation."
+            f"According to our model, the fetus is diagnosed with granulomatous inflammation. "
+            f"The model predicts that the fetus has a {probability:.1f}% probability of having granulomatous inflammation. "
+            "It is strongly advised to initiate anti-inflammatory treatment."
         )
-    elif predicted_class == 1:
+    elif mapped_class == 2:
         advice = (
-            f"According to our model, the fetus is in a normal state. "
-            f"The model predicts that the fetus has a {probability:.1f}% probability of being normal. "
-            "It is recommended to continue monitoring the fetus's health regularly."
+            f"According to our model, the fetus is diagnosed with benign tumors. "
+            f"The model predicts that the fetus has a {probability:.1f}% probability of having benign tumors. "
+            "It is recommended to continue regular follow-up and monitoring."
         )
-    else:
+    else:  # mapped_class == 3
         advice = (
-            f"According to our model, the fetus is in a suspicious state. "
-            f"The model predicts that the fetus has a {probability:.1f}% probability of being suspicious. "
-            "Further evaluation and close monitoring are recommended."
+            f"According to our model, the fetus is diagnosed with non-small cell lung cancer. "
+            f"The model predicts that the fetus has a {probability:.1f}% probability of having non-small cell lung cancer. "
+            "Further treatment and evaluation are recommended."
         )
 
+    # 显示建议
     st.write(advice)
 
     # Calculate SHAP values
