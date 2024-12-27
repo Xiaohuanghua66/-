@@ -26,7 +26,7 @@ feature_names = [
     "Calcification",  # Calcification (CA)
     "Rimmed sign",  # Rimmed Sign
     "Satellite lesion",  # Satellite Lesion (SL)
-    "Long diameter of satellite lesion",  # Long Axis of Satellite Lesions
+    "Long diameter of satellite lesion ",  # Long Axis of Satellite Lesions
     "Distance between satellite lesion and main stem lesion",  # Distance Between Satellite Lesions and the Main Stem Lesion (DBS)
     "Number of satellite lesion",  # Number of Satellite Lesions (NSL)
     "Halo sign",  # Halo Sign (HS)
