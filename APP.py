@@ -62,6 +62,8 @@ feature_values = [ct, rhs, sh, ti, dm, hs, hbp, mlc, smoking_status, ai, ll, sex
 features_df = pd.DataFrame([feature_values], columns=feature_names)
 
 if st.button("Predict"):
+    # Create DataFrame from user input
+    features_df = pd.DataFrame([feature_values], columns=feature_names)
     # Predict class and probabilities using DataFrame
     predicted_class = model.predict(features_df)[0]
     predicted_proba = model.predict_proba(features_df)[0]
