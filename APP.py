@@ -10,35 +10,53 @@ model = joblib.load('XGBoost.pkl')
 
 # Define feature names
 feature_names = [
-    "LB", "AC", "FM", "UC", "DP", "ASTV", "MSTV", "ALTV", "MLTV",
-    "Width", "Min", "Max", "Nmax", "Mode", "Mean", "Median", "Variance", "Tendency"
+    "Cut Sign (CT)",
+    "Reverse Halo Sign (RHS)",
+    "Surgical History (SH)",
+    "Tumor Indicator (TI)",
+    "Diabetes Mellitus (DM)",
+    "Halo Sign (HS)",
+    "High Blood Pressure (HBP)",
+    "Multiple Lung Comorbidity (MLC)",
+    "Smoking Status",
+    "Airspace Involvement (AI)",
+    "Lesion Location (LL)",
+    "Sex (Male=1)",
+    "Calcification (CA)",
+    "Air Bronchogram (AB)",
+    "Satellite Lesion (SL)",
+    "Number of Satellite Lesions (NSL)",
+    "Distance Between Satellite Lesions and the Main Stem Lesion (DBS)",
+    "Long Axis of Satellite Lesions",
+    "Rimmed Sign"
 ]
 
 # Streamlit user interface
 st.title("Fetal State Predictor")
 
 # Input features
-lb = st.number_input("Fetal baseline heart rate (LB):", min_value=50, max_value=200, value=120)
-ac = st.number_input("Accelerations (AC):", min_value=0, max_value=10, value=0)
-fm = st.number_input("Fetal movements (FM):", min_value=0, max_value=20, value=0)
-uc = st.number_input("Uterine contractions (UC):", min_value=0, max_value=20, value=0)
-dp = st.number_input("Light decelerations (DP):", min_value=0, max_value=10, value=0)
-astv = st.number_input("Percentage of time with abnormal short-term variability (ASTV):", min_value=0, max_value=100, value=73)
-mstv = st.number_input("Mean value of short-term variability (MSTV):", min_value=0.0, max_value=10.0, value=0.5)
-altv = st.number_input("Percentage of time with abnormal long-term variability (ALTV):", min_value=0, max_value=100, value=43)
-mltv = st.number_input("Mean value of long-term variability (MLTV):", min_value=0.0, max_value=20.0, value=2.4)
-width = st.number_input("Width of FHR histogram (Width):", min_value=0, max_value=200, value=64)
-min_val = st.number_input("Minimum FHR value (Min):", min_value=0, max_value=200, value=62)
-max_val = st.number_input("Maximum FHR value (Max):", min_value=0, max_value=200, value=126)
-nmax = st.number_input("Number of histogram peaks (Nmax):", min_value=0, max_value=10, value=2)
-mode = st.number_input("Histogram mode (Mode):", min_value=0, max_value=200, value=120)
-mean = st.number_input("Histogram mean (Mean):", min_value=0, max_value=200, value=137)
-median = st.number_input("Histogram median (Median):", min_value=0, max_value=200, value=121)
-variance = st.number_input("Histogram variance (Variance):", min_value=0, max_value=200, value=73)
-tendency = st.selectbox("Tendency (0=Normal, 1=Suspicious):", options=[0, 1])
+ct = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+rhs = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+sh = st.selectbox(feature_names[2], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ti = st.selectbox(feature_names[3], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+dm = st.selectbox(feature_names[4], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+hs = st.selectbox(feature_names[5], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+hbp = st.selectbox(feature_names[6], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+mlc = st.selectbox(feature_names[7], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+smoking_status = st.selectbox(feature_names[8], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ai = st.selectbox(feature_names[9], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ll = st.selectbox(feature_names[10], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+sex = st.selectbox(feature_names[11], options=[0, 1], index=0, help="0=Female, 1=Male")
+ca = st.selectbox(feature_names[12], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ab = st.selectbox(feature_names[13], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+sl = st.selectbox(feature_names[14], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+nsl = st.selectbox(feature_names[15], options=[0, 1, 2], index=0, help="0=Normal, 1=Suspicious, 2=Have")
+dbs = st.number_input(feature_names[16], min_value=0, max_value=5, value=0)
+long_axis = st.number_input(feature_names[17], min_value=0, max_value=3, value=0)
+rimmed_sign = st.selectbox(feature_names[18], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 
 # Collect input values into a list
-feature_values = [lb, ac, fm, uc, dp, astv, mstv, altv, mltv, width, min_val, max_val, nmax, mode, mean, median, variance, tendency]
+feature_values = [ct, rhs, sh, ti, dm, hs, hbp, mlc, smoking_status, ai, ll, sex, ca, ab, sl, nsl, dbs, long_axis, rimmed_sign]
 
 # Convert feature values into a DataFrame
 features_df = pd.DataFrame([feature_values], columns=feature_names)
