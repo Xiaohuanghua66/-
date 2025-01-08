@@ -35,7 +35,7 @@ feature_names = [
 ]
 
 # Streamlit user interface
-st.title("Fetal State Predictor")
+st.title("Pulmonary lesions Predictor")
 
 # Input features
 sex = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Female, 1=Male")
