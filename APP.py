@@ -48,13 +48,13 @@ ll = st.selectbox(feature_names[5], options=[1, 2, 3, 4, 5], index=0, help="1=Ri
 ai = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ab = st.selectbox(feature_names[8], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ca = st.selectbox(feature_names[7], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-rimmed_sign = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+rimmed_sign = st.selectbox(feature_names[13], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 sl = st.selectbox(feature_names[10], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 long_axis = st.number_input(feature_names[9], min_value=0, max_value=3, value=0)
 dbs = st.number_input(feature_names[12], min_value=0, max_value=5, value=0)
 nsl = st.selectbox(feature_names[15], options=[0, 1, 2], index=0, help="0=Normal, 1=Suspicious, 2=Have")
 hs = st.selectbox(feature_names[14], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ct = st.selectbox(feature_names[13], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ct = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 rhs = st.selectbox(feature_names[11], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 
 # Collect input values into a list
