@@ -13,50 +13,51 @@ import streamlit as st
 
 # 新的特征名称
 feature_names = [
+    "Rimmed sign",  # Rimmed Sign
+    "Airspace",  # Airspace Involvement (AI)
+    "Surgical history",  # Surgical History (SH)
+    "Tumour indicator",  # Tumor Indicator (TI)
+    "DM",  # Diabetes Mellitus (DM)
+    "Location",  # Lesion Location (LL)
+    "HBP",  # High Blood Pressure (HBP)
+    "Calcification",  # Calcification (CA)
+    "Air bronchogram",  # Air Bronchogram (AB)
+    "Long diameter of satellite lesion",  # Long Axis of Satellite Lesions
+    "Satellite lesion",  # Satellite Lesion (SL)
+    "Reverse halo sign",  # Reverse Halo Sign (RHS)
+    "Distance between satellite lesion and main stem lesion",  # Distance Between Satellite Lesions and the Main Stem Lesion (DBS)
+    "Cut sign",  # Cut Sign (CT)
+    "Halo sign",  # Halo Sign (HS)
+    "Number of satellite lesion",  # Number of Satellite Lesions (NSL)
+    "MLC",  # Multiple Lung Comorbidity (MLC)
     "Sex",  # Sex (Male=1)
     "Smoke",  # Smoking Status
-    "Surgical history",  # Surgical History (SH)
-    "HBP",  # High Blood Pressure (HBP)
-    "DM",  # Diabetes Mellitus (DM)
-    "MLC",  # Multiple Lung Comorbidity (MLC)
-    "Tumour indicator",  # Tumor Indicator (TI)
-    "Location",  # Lesion Location (LL)
-    "Airspace",  # Airspace Involvement (AI)
-    "Air bronchogram",  # Air Bronchogram (AB)
-    "Calcification",  # Calcification (CA)
-    "Rimmed sign",  # Rimmed Sign
-    "Satellite lesion",  # Satellite Lesion (SL)
-    "Long diameter of satellite lesion ",  # Long Axis of Satellite Lesions
-    "Distance between satellite lesion and main stem lesion",  # Distance Between Satellite Lesions and the Main Stem Lesion (DBS)
-    "Number of satellite lesion",  # Number of Satellite Lesions (NSL)
-    "Halo sign",  # Halo Sign (HS)
-    "Cut sign",  # Cut Sign (CT)
-    "Reverse halo sign"  # Reverse Halo Sign (RHS)
 ]
 
 # Streamlit user interface
 st.title("Pulmonary lesions Predictor")
 
-# Input features
-sex = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Female, 1=Male")
-smoke = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+# Input features with adjusted order
+rimmed_sign = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ai = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 sh = st.selectbox(feature_names[2], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-hbp = st.selectbox(feature_names[3], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ti = st.selectbox(feature_names[3], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 dm = st.selectbox(feature_names[4], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-mlc = st.selectbox(feature_names[5], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ti = st.selectbox(feature_names[6], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ll = st.selectbox(feature_names[7], options=[1, 2, 3, 4, 5], index=0, help="1=Right Upper Lung, 2=Right Middle Lung, 3=Right Lower Lung, 4=Left Upper Lung, 5=Left Lower Lung")
-ai = st.selectbox(feature_names[8], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ab = st.selectbox(feature_names[9], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ca = st.selectbox(feature_names[10], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-rimmed_sign = st.selectbox(feature_names[11], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-sl = st.selectbox(feature_names[12], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-long_axis = st.number_input(feature_names[13], min_value=0, max_value=3, value=0)
-dbs = st.number_input(feature_names[14], min_value=0, max_value=5, value=0)
+ll = st.selectbox(feature_names[5], options=[1, 2, 3, 4, 5], index=0, help="1=Right Upper Lung, 2=Right Middle Lung, 3=Right Lower Lung, 4=Left Upper Lung, 5=Left Lower Lung")
+hbp = st.selectbox(feature_names[6], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ca = st.selectbox(feature_names[7], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ab = st.selectbox(feature_names[8], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+long_axis = st.number_input(feature_names[9], min_value=0, max_value=3, value=0)
+sl = st.selectbox(feature_names[10], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+rhs = st.selectbox(feature_names[11], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+dbs = st.number_input(feature_names[12], min_value=0, max_value=5, value=0)
+ct = st.selectbox(feature_names[13], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+hs = st.selectbox(feature_names[14], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 nsl = st.selectbox(feature_names[15], options=[0, 1, 2], index=0, help="0=Normal, 1=Suspicious, 2=Have")
-hs = st.selectbox(feature_names[16], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ct = st.selectbox(feature_names[17], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-rhs = st.selectbox(feature_names[18], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+mlc = st.selectbox(feature_names[16], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+sex = st.selectbox(feature_names[17], options=[0, 1], index=0, help="0=Female, 1=Male")
+smoke = st.selectbox(feature_names[18], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+
 
 
 # Collect input values into a list
