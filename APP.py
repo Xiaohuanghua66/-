@@ -45,7 +45,7 @@ hbp = st.selectbox(feature_names[3], options=[0, 1], index=0, help="0=Normal, 1=
 dm = st.selectbox(feature_names[4], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 mlc = st.selectbox(feature_names[5], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ti = st.selectbox(feature_names[6], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-ll = st.selectbox(feature_names[7], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+ll = st.selectbox(feature_names[7], options=[1, 2, 3, 4, 5], index=0, help="1=Right Upper Lung, 2=Right Middle Lung, 3=Right Lower Lung, 4=Left Upper Lung, 5=Left Lower Lung")
 ai = st.selectbox(feature_names[8], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ab = st.selectbox(feature_names[9], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ca = st.selectbox(feature_names[10], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
