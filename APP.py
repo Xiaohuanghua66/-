@@ -61,7 +61,7 @@ smoke = st.selectbox(feature_names[18], options=[0, 1], index=0, help="0=Normal,
 
 
 # Collect input values into a list
-feature_values = [ct, rhs, sh, ti, dm, hs, hbp, mlc, smoke, ai, ll, sex, ca, ab, sl, nsl, dbs, long_axis, rimmed_sign]
+feature_values = [rimmed_sign, ai, sh, ti, dm, ll, hbp, ca, ab, long_axis, sl, rhs, dbs, ct, hs, nsl, mlc, sex, smoke]
 
 # Convert feature values into a DataFrame
 features_df = pd.DataFrame([feature_values], columns=feature_names)
