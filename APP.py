@@ -11,7 +11,6 @@ model = joblib.load('XGBoost.pkl')
 # Define feature names
 import streamlit as st
 
-# 新的特征名称
 feature_names = [
 "Sex",  # Sex (Male=1)
 "Smoke",  # Smoking Status
@@ -57,8 +56,6 @@ nsl = st.selectbox(feature_names[15], options=[0, 1, 2], index=0, help="0=Normal
 hs = st.selectbox(feature_names[16], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 ct = st.selectbox(feature_names[17], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 rhs = st.selectbox(feature_names[18], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-
-
 
 # Collect input values into a list
 feature_values = [ct, rhs, sh, ti, dm, hs, hbp, mlc, smoke, ai, ll, sex, ca, ab, sl, nsl, dbs, long_axis, rimmed_sign]
