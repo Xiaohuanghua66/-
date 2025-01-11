@@ -33,7 +33,7 @@ feature_names = [
 "Reverse halo sign"  # Reverse Halo Sign (RHS)
 ]
 
-Streamlit user interface
+# Streamlit user interface
 st.title("Pulmonary lesions Predictor")
 
 Input features
