@@ -36,7 +36,7 @@ feature_names = [
 # Streamlit user interface
 st.title("Pulmonary lesions Predictor")
 
-Input features
+# Input features
 sex = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Female, 1=Male")
 smoke = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 sh = st.selectbox(feature_names[2], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
