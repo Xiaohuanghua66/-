@@ -37,9 +37,9 @@ feature_names = [
 st.title("Pulmonary lesions Predictor")
 
 # Input features
-sex = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Female, 1=Male")
+sex = st.selectbox(feature_names[2], options=[0, 1], index=0, help="0=Female, 1=Male")
 smoke = st.selectbox(feature_names[1], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
-sh = st.selectbox(feature_names[2], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
+sh = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 hbp = st.selectbox(feature_names[3], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 dm = st.selectbox(feature_names[4], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 mlc = st.selectbox(feature_names[5], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
