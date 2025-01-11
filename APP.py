@@ -58,7 +58,7 @@ ct = st.selectbox(feature_names[0], options=[0, 1], index=0, help="0=Normal, 1=S
 rhs = st.selectbox(feature_names[11], options=[0, 1], index=0, help="0=Normal, 1=Suspicious")
 
 # Collect input values into a list
-feature_values = [rimmed_sign, ai, sh, ti, dm, ll, hbp, ca, ab, long_axis, sl, rhs, dbs, ct, hs, nsl, mlc, sex, smoke]
+feature_values = [rimmed_sign, ai, sh, ti, dm, ca, hbp, ll, ab, long_axis, sl, rhs, dbs, ct, hs, nsl, mlc, sex, smoke]
 
 # Convert feature values into a DataFrame
 features_df = pd.DataFrame([feature_values], columns=feature_names)
